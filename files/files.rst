@@ -306,7 +306,7 @@ In this exercise you will explore the new, integrated File Analytics capabilitie
 
 File Analytics puts simple, yet powerful information in the hands of storage administrators, allowing them to understand and audit both utilization and access within a Nutanix Files environment.
 
-..   Using NFS Exports
+   Using NFS Exports
    +++++++++++++++++
 
    In this exercise you will create and test a NFSv4 export, used to support clustered applications, store application data such as logging, or storing other unstructured file data commonly accessed by Linux clients.

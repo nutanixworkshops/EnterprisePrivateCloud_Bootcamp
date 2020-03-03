@@ -4,16 +4,7 @@
 A Day in the Life
 -----------------
 
-In a constant effort to improve our products, members of the Nutanix Product Management team have been working in conjunction with field sales teams to conduct long form interviews and panels with large-scale Nutanix customers to understand how we can ease adoption, tighten workflows, and prioritize the introduction of new functionality. *Basically - why do people love Nutanix, and what can we do to make their experience better.*
-
-From these studies, we were able to identify much of what a typical "Day in the Life" of a Nutanix administrator can look like - and have adapted it into the starting point for the Private Cloud lab track. It is easy to get caught up in all of the amazing things Nutanix is working to bring to market, and subsequently lose sight of the core capabilities that have brought Nutanix success:
-
-- The industry's best HCI software - AOS
-- An unmatched consumer-grade management experience in Prism
-
-Our Private Cloud story is built on the strongest *foundation* (sorry, couldn't help it) possible.
-
-**In this lab you will follow a day in the life of Carol O'Kay, a 10 year veteran of administrating vSphere environments on 3-tier architecture, who has recently deployed her first Nutanix cluster. The Nutanix cluster is being used for a mix of production IT workloads, and supporting the engineering efforts for her company's primary application, an inventory management solution called Fiesta, used to support the company's retail storefronts.**
+In this lab you will follow a day in the life of Carol O'Kay, a 10 year veteran of administrating virtual environments on 3-tier architecture, who has recently deployed her first Nutanix cluster. The Nutanix cluster is being used for a mix of production IT workloads, and supporting the engineering efforts for her company's primary application, an inventory management solution called Fiesta, used to support the company's retail storefronts.
 
 Configuring Storage
 +++++++++++++++++++
@@ -25,7 +16,7 @@ In this brief exercise, you will experience how IT generalists can provision and
 #. In a browser, open **Prism Element** and log in using the following local user credentials:
 
    - **Username** - admin
-   - **Password** - techX2020!
+   - **Password** - *HPOC Password*
 
    .. figure:: images/1.png
 
@@ -100,10 +91,6 @@ In this exercise Carol will use Prism to configure a new VM Network for the clus
 
 AHV leverages Open vSwitch (OVS) for all VM networking. OVS is an open source software switch implemented in the Linux kernel and designed to work in a multiserver virtualization environment. Each AHV server maintains an OVS instance, and all OVS instances combine to form a single logical switch. Each node is typically uplinked to a physical switch port trunked/tagged to multiple VLANs, which will be exposed as virtual networks.
 
-.. note::
-
-   Typically, Hosted POC clusters provide 2x /25 VLANs. In order to provide adequate IP space and support lab requirements for Global Tech Summit, each cluster has been assigned an additional 8x /27 VLANs. A /27 VLAN provides 32 IP addresses, 5 of which are reserved. You will therefore need to be conscious of cleaning up unneeded VMs to avoid running out of IP space.
-
 #. Select **VM** from the **Prism Element** drop down menu.
 
 #. Select **Network Config**.
@@ -112,20 +99,18 @@ AHV leverages Open vSwitch (OVS) for all VM networking. OVS is an open source so
 
 #. Click **+ Create Network** and fill out the following fields, using the **User** specific network details in :ref:`clusterassignments`:
 
-   - **Name** - *Refer to*  :ref:`clusterassignments`
-   - **VLAN ID** - *Refer to*  :ref:`clusterassignments`
+   - **Name** - *Initials*-Network_IPAM
+   - **VLAN ID** - A value (< 4096) other than your **Primary** or **Secondary** network VLANs
    - Select **Enable IP Address Management**
-   - **Network IP Address / Prefix Length** - *Refer to*  :ref:`clusterassignments`
-   - **Gateway IP Address** - *Refer to*  :ref:`clusterassignments`
-   - **Domain Name Servers** - *Refer to*  :ref:`clusterassignments`
-   - **Domain Search** - ntnxlab.local
-   - **Domain Name** - ntnxlab
+   - **Network IP Address / Prefix Length** - 10.0.0.0/24
+   - **Gateway** - 10.0.0.1
+   - Do not select **Configure Domain Settings**
    - Select **+ Create Pool**
-   - **Start Address** - *Refer to*  :ref:`clusterassignments`
-   - **End Address** - *Refer to*  :ref:`clusterassignments`
+   - **Start Address** - 10.0.0.100
+   - **End Address** - 10.0.0.150
    - Click **Submit**
 
-   .. figure:: images/8.png
+   .. figure:: images/network_config_03.png
 
    Note that AHV is capable of providing integrated DHCP services (IPAM), allowing virtualization administrators to allocate IPs to VMs from a configured pool, or easily specifying IPs as DHCP reservations when adding virtual NICs to VMs.
 
@@ -135,7 +120,7 @@ AHV leverages Open vSwitch (OVS) for all VM networking. OVS is an open source so
 
 #. Close the **Network Configuration** window.
 
-   You're done - simple stuff! You will continue to use this network for the following exercises.
+   You're done - simple stuff!
 
 Responding to VM Creation Requests
 ++++++++++++++++++++++++++++++++++
@@ -163,7 +148,7 @@ Virtualization administrators are commonly tasked with deployment of new VMs. In
       - Select **Add**
 
    - Select **Add New NIC**
-      - **VLAN Name** - *Assigned User VLAN*
+      - **VLAN Name** - Secondary
       - Select **Add**
 
    Similar to public cloud providers, Nutanix AHV provides an Image Service feature allows you to build a store of imported files that you can use to mount a CD-ROM device from an ISO image or an operating system Disk from a disk image when creating a VM. The Image Service supports raw, vhd, vhdx, vmdk, vdi, iso, and qcow2 disk formats.
@@ -204,7 +189,7 @@ In the following exercises, Carol is going to up her Private Cloud game and brin
 #. Access **Prism Central** by clicking the **Launch** button and logging in with the following credentials:
 
    - **User Name** - admin
-   - **Password** - techX2020!
+   - **Password** - *HPOC Password*
 
    .. figure:: images/6.png
 
@@ -275,7 +260,7 @@ Carol needs to support two types of users working on the Fiesta team, developers
 #. Under **Entities**, use the drop down menu to specify the following resources:
 
    - **AHV Cluster** - *Your Assigned Cluster*
-   - **AHV Subnet** - *Your Assigned User VLAN*
+   - **AHV Subnet** - Secondary
    - **Category** - Environment:Testing, Environment:Staging, Environment:Dev, *Initials*\ -Team:Fiesta
 
    .. figure:: images/20.png
@@ -349,9 +334,9 @@ In order for non-infrastructure administrators to access Calm, allowing them to 
 
    - Select *Your Assigned Cluster*
 
-   - Under **Subnets**, select **Primary**, **Secondary**, and *Your Assigned User VLAN*, and click **Confirm**
+   - Under **Subnets**, select **Primary**, **Secondary**, and click **Confirm**
 
-   - Mark *Your Assigned User VLAN* as the default network by clicking the :fa:`star`
+   - Mark *Primary* as the default network by clicking the :fa:`star`
 
    - Under **Users, Groups, and Roles**, select **+ User**
 
@@ -402,7 +387,7 @@ While developer users will have the ability to create and publish their own Blue
 
    .. figure:: images/26.png
 
-#. In order to launch the Blueprint you must first assign a network to the VM. Select the **NodeReact** Service, and in the **VM** Configuration menu on the right, select *Your Assigned User VLAN* as the **NIC 1** network.
+#. In order to launch the Blueprint you must first assign a network to the VM. Select the **NodeReact** Service, and in the **VM** Configuration menu on the right, select **Primary** as the **NIC 1** network.
 
 #. Specify the *Initials*\ **-Team: Fiesta** and **Environment: Dev** categories for the **NodeReact** Service.
 
@@ -453,9 +438,9 @@ While developer users will have the ability to create and publish their own Blue
 Developer Workflow
 ++++++++++++++++++
 
-Meet Dan. Dan is a member of the Fiesta Engineering team, is currently going through a divorce, and trying to cut down on dairy. Dan is having a rough time. To make matters worse, he's behind on testing a new feature because previous requests to IT for virtual infrastructure that Dan needs to work have each taken several days.
+Meet Dan. Dan is a member of the Fiesta Engineering team. He's behind on testing a new feature because previous requests to IT for virtual infrastructure that Dan needs to work have each taken several days.
 
-Dan has resorted to deploying VMs outside of the corporate network on his favorite public cloud service, with no security oversight, and putting company IP at risk. Dan has a lot on his plate, so we're not going to fault him for it.
+Dan has resorted to deploying VMs outside of the corporate network on his favorite public cloud service, with no security oversight, and putting company IP at risk.
 
 Carol to the rescue - she encourages Dan to follow the exercise below to allow him to easily deploy resources within the Fiesta project through Prism.
 
@@ -484,7 +469,7 @@ Carol to the rescue - she encourages Dan to follow the exercise below to allow h
    - **Select Disk Images** - Linux_ToolsVM.qcow2
    - **Name** - *Initials* -LinuxToolsVM
    - **Target Project** - *Initials* -FiestaProject
-   - **Network** - *User Assigned VLAN*
+   - **Network** - Secondary
    - **Categories** - Envrionment:Dev
    - Select **Manually configure CPU and Memory for this VM**
    - **CPU** - 2

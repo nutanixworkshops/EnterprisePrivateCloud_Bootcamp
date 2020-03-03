@@ -6,13 +6,13 @@
    :name: _privatecloud
    :hidden:
 
-   pc/dayinlife/dayinlife
+   dayinlife/dayinlife
    prismops/prismops_capacity_lab/prismops_capacity_lab
    prismops/prismops_rightsize_lab/prismops_rightsize_lab
-   pc/security/security
-   pc/files/files
-   pc/flow_secure_fiesta/flow_secure_fiesta
-   beam_cost_governance/beam_cost_governance
+   security/security
+   files/files
+   flow_secure_fiesta/flow_secure_fiesta
+..   beam_cost_governance/beam_cost_governance
 
 .. toctree::
   :maxdepth: 2
@@ -21,7 +21,7 @@
   :hidden:
 
   image_create/image_create
-  .. lab_image_configuration/lab_image_configuration
+.. lab_image_configuration/lab_image_configuration
 
 .. toctree::
   :maxdepth: 2
