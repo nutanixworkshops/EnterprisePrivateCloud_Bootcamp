@@ -1,12 +1,12 @@
 -------------------------------
-Right-sizing VMs with Prism Pro
+Right-sizing VMs with Prism Ops
 -------------------------------
 
 .. figure:: images/operationstriangle.png
 
-Prism Pro brings smart automation to our customer’s daily IT operations. The typical operations workflow is a continuous cycle of monitoring, analyzing and taking action where necessary. Prism Pro mirrors traditional IT Admin's workflows to improve operations efficiency. With Prism Pro, IT Admins are able to connect insights from machine data to automate this typical flow using the power of the machine learning engine X-FIT and the X-Play automation engine.
+Prism Ops brings smart automation to our customer’s daily IT operations. The typical operations workflow is a continuous cycle of monitoring, analyzing and taking action where necessary. Prism Ops mirrors traditional IT Admin's workflows to improve operations efficiency. With Prism Ops, IT Admins are able to connect insights from machine data to automate this typical flow using the power of the machine learning engine X-FIT and the X-Play automation engine.
 
-In this lab you will learn how Prism Pro can help IT Admins monitor, analyze and automatically act when a VM's memory resource is constrained.
+In this lab you will learn how Prism Ops can help IT Admins monitor, analyze and automatically act when a VM's memory resource is constrained.
 
 Lab Setup
 +++++++++
@@ -27,12 +27,12 @@ Lab Setup
 
    .. figure:: images/init3.png
 
-Inefficiency Detection with Prism Pro X-FIT
+Inefficiency Detection with Prism Ops X-FIT
 +++++++++++++++++++++++++++++++++++++++++++
 
-Prism Pro uses X-FIT machine learning to detect and monitor the behaviors of VMs running within the managed clusters.
+Prism Ops uses X-FIT machine learning to detect and monitor the behaviors of VMs running within the managed clusters.
 
-Using machine learning, Prism Pro then analyzes the data and applies a classification to VMs that are learned to be inefficient. The following are short descriptions of the different classifications:
+Using machine learning, Prism Ops then analyzes the data and applies a classification to VMs that are learned to be inefficient. The following are short descriptions of the different classifications:
 
   * **Overprovisioned:** VMs identified as using minimal amounts of assigned resources.
   * **Inactive:** VMs that have been powered off for a period of time or that are running VMs that do not consume any CPU, memory, or I/O resources.
@@ -41,11 +41,11 @@ Using machine learning, Prism Pro then analyzes the data and applies a classific
 
 #. In **Prism Central**, select :fa:`bars` **> Dashboard** (if not already there).
 
-#. From the Dashboard, take a look at the VM Efficiency widget. This widget gives a summary of inefficient VMs that Prism Pro’s X-FIT machine learning has detected in your environment. Click on the ‘View All Inefficeint VMs’ link at the bottom of the widget to take a closer look.
+#. From the Dashboard, take a look at the VM Efficiency widget. This widget gives a summary of inefficient VMs that Prism Ops’s X-FIT machine learning has detected in your environment. Click on the ‘View All Inefficeint VMs’ link at the bottom of the widget to take a closer look.
 
    .. figure:: images/ppro_58.png
 
-#. You are now viewing the Efficiency focus in the VMs list view with more details about why Prism Pro flagged these VMs. You can hover the text in the Efficiency detail column to view the full description.
+#. You are now viewing the Efficiency focus in the VMs list view with more details about why Prism Ops flagged these VMs. You can hover the text in the Efficiency detail column to view the full description.
 
    .. figure:: images/ppro_59.png
 
@@ -56,7 +56,7 @@ Using machine learning, Prism Pro then analyzes the data and applies a classific
    * **Automation:** Use some other method of automation such as powershell or REST-API to resize a VM.
 
 
-   Using this machine learning data, Prism Pro is also able to generate baselines, or expected ranges, for VM, Host and Cluster metric data. The X-FIT alogrithms learn the normal behavior of these entities and represent that as a baseline range on the different charts. Whenever a metric value deviates from this expected range, Prism Pro will raise an anomaly.
+   Using this machine learning data, Prism Ops is also able to generate baselines, or expected ranges, for VM, Host and Cluster metric data. The X-FIT alogrithms learn the normal behavior of these entities and represent that as a baseline range on the different charts. Whenever a metric value deviates from this expected range, Prism Ops will raise an anomaly.
 
 #. Now let's take a take a look at a VM by searching for ‘bootcamp_good’ and selecting ‘bootcamp_good_1’.
 
@@ -229,7 +229,7 @@ Now let's look at how we can take automated action to resolve some of these inef
 Takeaways
 .........
 
-- Prism Pro is our solution to make IT OPS smarter and automated. It covers the IT OPS process ranging from intelligent detection to automated remediation.
+- Prism Ops is our solution to make IT OPS smarter and automated. It covers the IT OPS process ranging from intelligent detection to automated remediation.
 
 - X-FIT is our machine learning engine to support smart IT OPS, including anomaly detection, and inefficiency detection.
 
@@ -242,10 +242,10 @@ Takeaways
 Getting Connected
 +++++++++++++++++
 
-Have a question about **Prism Pro**? Please reach out to the resources below:
+Have a question about **Prism Ops**? Please reach out to the resources below:
 
 +---------------------------------------------------------------------------------+
-|  Prism Pro Product Contacts                                                     |
+|  Prism Ops Product Contacts                                                     |
 +================================+================================================+
 |  Slack Channel                 |  #prism-pro                                    |
 +--------------------------------+------------------------------------------------+

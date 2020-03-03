@@ -1,12 +1,12 @@
 ------------------------
-Prism Pro Capacity Runway
+Prism Ops Capacity Runway
 ------------------------
 
 .. figure:: images/operationstriangle.png
 
-Prism Pro brings smart automation to our customer’s daily IT operations. The typical operations workflow is a continuous cycle of monitoring, analyzing and taking action where necessary. Prism Pro mirrors traditional IT Admin's workflows to improve operations efficiency. With Prism Pro, IT Admins are able to connect insights from machine data to automate this typical flow using the power of the machine learning engine X-FIT and the X-Play automation engine.
+Prism Ops brings smart automation to our customer’s daily IT operations. The typical operations workflow is a continuous cycle of monitoring, analyzing and taking action where necessary. Prism Ops mirrors traditional IT Admin's workflows to improve operations efficiency. With Prism Ops, IT Admins are able to connect insights from machine data to automate this typical flow using the power of the machine learning engine X-FIT and the X-Play automation engine.
 
-In this lab you will learn how Prism Pro can help IT Admins monitor, analyze and automatically act when cluster runway is low.
+In this lab you will learn how Prism Ops can help IT Admins monitor, analyze and automatically act when cluster runway is low.
 
 Lab Setup
 +++++++++
@@ -30,7 +30,7 @@ Lab Setup
 Capacity Planning Runway Monitoring
 ++++++++++++++++++++++++++++++++++++++
 
-Capacity runway is a measure of the remaining capacity left within a given cluster or node. There is an overall cluster runway as well as individual runway measurements for CPU, Memory and storage capacity. The Capacity Runway is calculated using X-FIT, Prism Pro's machine intelligence engine. Lets view the Capacity Runway of your lab cluster.
+Capacity runway is a measure of the remaining capacity left within a given cluster or node. There is an overall cluster runway as well as individual runway measurements for CPU, Memory and storage capacity. The Capacity Runway is calculated using X-FIT, Prism Ops's machine intelligence engine. Lets view the Capacity Runway of your lab cluster.
 
 #. In **Prism Central > Operations > Planning > Capacity Runway**.
 
@@ -56,7 +56,7 @@ Capacity runway is a measure of the remaining capacity left within a given clust
 Capacity Planning Runway Analysis
 ++++++++++++++++++++++++++++++++++++++
 
-Prism Pro's X-FIT engine also provides the capability to plan for future workloads and identifies the hardware that can be added to account for the new workloads resource requirements.
+Prism Ops's X-FIT engine also provides the capability to plan for future workloads and identifies the hardware that can be added to account for the new workloads resource requirements.
 
 #. Under the **‘Adjust Resources’** section in the left side of this page, click the **‘Get Started’** button. We can now use this to start planning for new workloads and see how runway will need to be extended in the future.
 
@@ -91,7 +91,7 @@ Prism Pro's X-FIT engine also provides the capability to plan for future workloa
 Automate Capacity Forecast Report Generation with X-Play
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Now let's look at how we can take automated action to generate this report when the Capacity Runway is low. We will use X-Play, Prism Pro's simple automation engine.
+Now let's look at how we can take automated action to generate this report when the Capacity Runway is low. We will use X-Play, Prism Ops's simple automation engine.
 
 #. Use the search bar to navigate to the **Playbooks** page.
 
@@ -156,7 +156,7 @@ Now let's look at how we can take automated action to generate this report when 
 Takeaways
 .........
 
-- Prism Pro is our solution to make IT OPS smarter and automated. It covers the IT OPS process ranging from intelligent detection to automated remediation.
+- Prism Ops is our solution to make IT OPS smarter and automated. It covers the IT OPS process ranging from intelligent detection to automated remediation.
 
 - X-FIT is our machine learning engine to support smart IT OPS, including capacity forecasting.
 
@@ -165,10 +165,10 @@ Takeaways
 Getting Connected
 +++++++++++++++++
 
-Have a question about **Prism Pro**? Please reach out to the resources below:
+Have a question about **Prism Ops**? Please reach out to the resources below:
 
 +---------------------------------------------------------------------------------+
-|  Prism Pro Product Contacts                                                     |
+|  Prism Ops Product Contacts                                                     |
 +================================+================================================+
 |  Slack Channel                 |  #prism-pro                                    |
 +--------------------------------+------------------------------------------------+
