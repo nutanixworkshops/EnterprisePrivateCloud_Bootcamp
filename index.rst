@@ -2,8 +2,8 @@
 
 .. toctree::
    :maxdepth: 2
-   :caption: Private Cloud
-   :name: _privatecloud
+   :caption: Enterprise Private Cloud
+   :name: _enterprise_privatecloud
    :hidden:
 
    dayinlife/dayinlife
