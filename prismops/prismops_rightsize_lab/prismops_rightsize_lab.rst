@@ -238,16 +238,3 @@ Takeaways
 - X-Play enables admins to confidently automate their daily tasks within minutes.
 
 - X-Play is extensive that can use customer’s existing APIs and scripts as part of its Playbooks, and can integrate nicely with customers existing ticketing workflows.
-
-Getting Connected
-+++++++++++++++++
-
-Have a question about **Prism Ops**? Please reach out to the resources below:
-
-+---------------------------------------------------------------------------------+
-|  Prism Ops Product Contacts                                                     |
-+================================+================================================+
-|  Slack Channel                 |  #prism-pro                                    |
-+--------------------------------+------------------------------------------------+
-|  Email                         |  pops-pm@nutanix.com                           |
-+--------------------------------+------------------------------------------------+
