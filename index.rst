@@ -59,9 +59,11 @@ Agenda
 
 - Introductions
 - Nutanix Presentation
-- Nutanix Configuration Labs
-- Deploying and Managing Workloads Labs
-- Security Compliance Labs
+- A Day in the Life
+- Prism Ops
+- Platform Security
+- Files
+- Flow
 
 Introductions
 +++++++++++++
