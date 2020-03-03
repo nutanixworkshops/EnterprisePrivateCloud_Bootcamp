@@ -2,8 +2,8 @@
 
 .. toctree::
    :maxdepth: 2
-   :caption: Private Cloud
-   :name: _privatecloud
+   :caption: Enterprise Private Cloud
+   :name: _enterprise_privatecloud
    :hidden:
 
    dayinlife/dayinlife
@@ -59,9 +59,11 @@ Agenda
 
 - Introductions
 - Nutanix Presentation
-- Nutanix Configuration Labs
-- Deploying and Managing Workloads Labs
-- Security Compliance Labs
+- A Day in the Life
+- Prism Ops
+- Platform Security
+- Files
+- Flow
 
 Introductions
 +++++++++++++
