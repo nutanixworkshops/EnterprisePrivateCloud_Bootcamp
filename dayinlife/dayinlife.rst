@@ -6,6 +6,10 @@ A Day in the Life
 
 In this lab you will follow a day in the life of Carol O'Kay, a 10 year veteran of administrating virtual environments on 3-tier architecture, who has recently deployed her first Nutanix cluster. The Nutanix cluster is being used for a mix of production IT workloads, and supporting the engineering efforts for her company's primary application, an inventory management solution called Fiesta, used to support the company's retail storefronts.
 
+.. note::
+
+   If there are multiple people utilizing the same Nutanix cluster to complete this lab, certain steps may have already been completed. If this occurs, just skip that particular step, and continue on with the lab after you've verified the step(s) was completed correctly.
+
 Configuring Storage
 +++++++++++++++++++
 
@@ -44,13 +48,13 @@ In this brief exercise, you will experience how IT generalists can provision and
 
    **Compression**
 
-      Nutanix provides both inline and post-process data compression. Irrespective of inline or post-process compression, write data coming into OpLog that is >4k and shows good compression, will be written compressed in OpLog. For inline compression (Delay=0), sequential streams of data or large size I/Os (>64K) will be compressed when writing to the Extent Store. For post-process (Delay > 0), data is compressed after it is drained from OpLog to the Extent Store, after compression delay is met.
+      Nutanix provides two choices - inline or post-process data compression. Irrespective of inline or post-process compression, write data coming into OpLog that is >4k and shows good compression, will be written compressed in OpLog. For inline compression (Delay=0), sequential streams of data or large size I/Os (>64K) will be compressed when writing to the Extent Store. For post-process (Delay > 0), data is compressed after it is drained from OpLog to the Extent Store, after compression delay is met.
 
       Compression provides on-disk space savings for applications such as databases, and results in a lower number of writes being written to storage. Post-process compression is turned ON by default on all containers. Starting 5.18, inline compression will be turned ON by default on all containers. We recommend turning ON inline compression for almost all use cases. Workloads not ideal for compression are encrypted datasets or already compressed datasets.
 
    **Erasure Coding**
 
-      To provide a balance between availability and the amount of storage required, DSF provides the ability to encode data using erasure codes (EC). Like RAID (levels 4, 5, 6, etc.) where parity is calculated, EC encodes a strip of data blocks across different nodes and calculates parity. In the event of a host and/or disk failure, the parity data is used to calculate any missing data blocks (decoding).  In the case of DSF, the data block must be on a different node and belong to a different vDisk. EC is a post-process operation and is done on write cold data (Data that hasn’t been overwritten in more than 7 days). The number of data and parity blocks in a strip is chosen by the system based on number of nodes and configured failures to tolerate.
+      To provide a balance between availability and the amount of storage required, Distributed Storage Fabric (DSF) provides the ability to encode data using erasure codes (EC). Like RAID (levels 4, 5, 6, etc.) where parity is calculated, EC encodes a strip of data blocks across different nodes and calculates parity. In the event of a host and/or disk failure, the parity data is used to calculate any missing data blocks (decoding).  In the case of DSF, the data block must be on a different node and belong to a different vDisk. EC is a post-process operation and is done on write cold data (Data that hasn’t been overwritten in more than 7 days). The number of data and parity blocks in a strip is chosen by the system based on number of nodes and configured failures to tolerate.
 
       Turn on EC-X for non-mission-critical workloads and workloads that have a significant amount of write cold data, since erasure coding works on write cold data and provides more usable storage. For more information refer to `application specific best practice guides <https://portal.nutanix.com/page/documents/solutions/list/>`_.
 
@@ -76,7 +80,7 @@ In this brief exercise, you will experience how IT generalists can provision and
 
    In vSphere or Hyper-V environments, creating the Storage Container will also automate the process of mounting the storage to the hypervisor.
 
-#. Select an existing Storage Container, such as **buckets-ctr-data...**, and review the individual savings from different data reduction/avoidance features, as well as the **Effective Capacity**, which is a projection of available storage based on the overall efficiency. These values are found in the **Storage Container Details** table.
+#. Select an existing Storage Container, and review the individual savings from different data reduction/avoidance features, as well as the **Effective Capacity**, which is a projection of available storage based on the overall efficiency. These values are found in the **Storage Container Details** table.
 
    Unfortunately it is not possible to easily test data resiliency capabilities of the cluster in a shared environment, but the short video below will walk you through the experience from Prism when a node in the cluster is unexpectedly lost.
 
@@ -214,7 +218,7 @@ In this exercise you'll create a custom category for Carol to help align access 
 
 #. Click **Save**.
 
-#. Select the existing **Environment** category and note the available values. **Environment** is a **SYSTEM** category, and while you can add additional values, you cannot modify or delete the Category or any of its out of the box values.
+#. Click on the existing **Environment** category and note the available values. **Environment** is a **SYSTEM** category, and while you can add additional values, you cannot modify or delete the Category or any of its out of the box values.
 
    .. figure:: images/16.png
 
@@ -224,7 +228,11 @@ In this exercise you'll create a custom category for Carol to help align access 
 
    .. figure:: images/17.png
 
-#. In the search bar, begin typing **Environment** and select the **Production** value.
+   .. note::
+
+      Depending on the number of participants, some of the VMs you need to select could be on another page. You may either search for the VM in question, click to view additional pages and select the VM, or choose to show additional rows. Any of these techniques can be accomplished at the upper right hand portion of the interface.
+
+#. In the search bar, begin typing **Environment** and select the **Production** value, then click on the plus sign.
 
    .. figure:: images/18.png
 
@@ -234,7 +242,7 @@ In this exercise you'll create a custom category for Carol to help align access 
 
 #. Click **Save**.
 
-#. Select the *Initials*\ **-WinToolsVM** provisioned by Carol in the previous exercise, and click **Actions > Manage Categories**. Assign the *Initials*\ **-Team: Fiesta** category and **Save**.
+#. Select the *Initials*\ **-WinToolsVM** provisioned by Carol in the previous exercise, and click **Actions > Manage Categories**. Assign the *Initials*\ **-Team: Fiesta** category, click the plus sign and then **Save**.
 
 Exploring Roles
 ===============
@@ -247,15 +255,11 @@ Carol needs to support two types of users working on the Fiesta team, developers
 
    The built-in Developer role allows users to create and modify VMs, create, provision, and manage Calm Blueprints, and more.
 
-#. Select the built-in **Developer** role and optionally review the approved actions for the role. Click **Manage Assignment**.
+#. Click on the built-in **Developer** role and optionally review the approved actions for the role. Click **Manage Assignment**.
 
    .. figure:: images/19.png
 
 #. Under **Users and Groups**, specify the **SSP Developers** User Group which should be automatically discovered from the NTNXLAB.local domain.
-
-   .. note::
-
-      This may already have been completed by another user, but you'll need to ensure the proper entities are also added below.
 
 #. Under **Entities**, use the drop down menu to specify the following resources:
 
@@ -265,11 +269,11 @@ Carol needs to support two types of users working on the Fiesta team, developers
 
    .. figure:: images/20.png
 
-#. Click **Save**.
+#. Click **Save** and then close this screen by clicking on the X at the top right.
 
    The default Operator roll includes the ability to delete VMs and applications deployed from Blueprints, which isn't desired in our environment. Rather than building a new role from scratch, we can clone to existing role and modify to suit our needs. The desired operator role should be able to view VM metrics, perform power operations, and update VM configurations such as vCPU or memory to address application performance issues.
 
-#. Select the built-in **Operator** role and click **Duplicate**.
+#. Click the built-in **Operator** role and click **Duplicate**.
 
 #. Fill out the following fields and click **Save** to create your custom role:
 
@@ -281,7 +285,7 @@ Carol needs to support two types of users working on the Fiesta team, developers
 
    .. figure:: images/21.png
 
-#. Refresh **Prism** and select your **SmoothOperator** role. Click **Manage Assignment**.
+#. Refresh **Prism** and click on your **SmoothOperator** role. Click **Manage Assignment**.
 
 #. Create the following assignment:
 
@@ -290,7 +294,7 @@ Carol needs to support two types of users working on the Fiesta team, developers
 
    Operator01 is a user who has access to all VMs tagged with any of the Environment categories, but lacks generic access to specific clusters.
 
-#. Click **New User** to add an additional assignment to the same role:
+   Click **New Users** to add an additional assignment to the same role:
 
    - **Users and Groups** - operator02
    - **Entity Categories** - EnvironmentDev, *Initials*\ -Team:Fiesta
@@ -299,7 +303,7 @@ Carol needs to support two types of users working on the Fiesta team, developers
 
    .. figure:: images/22.png
 
-#. Click **Save**.
+   Click **Save**.
 
 #. For infrastructure administrators such as Carol, you can map AD users to the **Prism Admin** or **Super Admin** roles through selecting :fa:`bars` **> Prism Central Settings > Role Mapping** and adding a new **Cluster Admin** or **User Admin** mapping to AD accounts.
 
@@ -341,7 +345,7 @@ In order for non-infrastructure administrators to access Calm, allowing them to 
    - Under **Users, Groups, and Roles**, select **+ User**
 
       - **Name** - SSP Developers
-      - **Role** - Developers
+      - **Role** - Developer
       - **Action** - Save
 
    - Select **+ User**
@@ -438,7 +442,7 @@ While developer users will have the ability to create and publish their own Blue
 Developer Workflow
 ++++++++++++++++++
 
-Meet Dan. Dan is a member of the Fiesta Engineering team. He's behind on testing a new feature because previous requests to IT for virtual infrastructure that Dan needs to work have each taken several days.
+Meet Dan. Dan is a member of the Fiesta Engineering team. He's behind on testing a new feature, as his request to IT to deploy the virtual infrastructure he requires to perform the testing are several days overdue.
 
 Dan has resorted to deploying VMs outside of the corporate network on his favorite public cloud service, with no security oversight, and putting company IP at risk.
 
@@ -457,7 +461,7 @@ Carol to the rescue - she encourages Dan to follow the exercise below to allow h
 
 #. On the **VMs** page, you should already see your *Initials*\ **-WinToolsVM** as available to be managed by Dan.
 
-#. Select the VM and note Dan can get basic metrics associated with his VM, as well as control the VM configuration, power operations, and even delete the VM.
+#. Click on the VM and note Dan can get basic metrics associated with his VM, as well as control the VM configuration, power operations, and even delete the VM.
 
    .. figure:: images/29.png
 
@@ -523,7 +527,7 @@ Carol to the rescue - she encourages Dan to follow the exercise below to allow h
 
    .. figure:: images/37.png
 
-#. Select the **Audit** tab to monitor the deployment of the Fiesta development environment. Complete provisioning of the app should take approximately
+#. Click the **Audit** tab to monitor the deployment of the Fiesta development environment.
 
    .. figure:: images/38.png
 
@@ -580,9 +584,9 @@ Now that Carol has freed up time to focus on replacing additional legacy infrast
    - **User Name** - adminuser01@ntnxlab.local
    - **Password** - nutanix/4u
 
-#. Open :fa:`bars` **> Infrastructure > VMs**. Prism Central's **Entity Browser** provides a robust UI for sorting, searching, and viewing entities such as VMs, Images, Clusters, Hosts, Alerts, and more!
+#. Open :fa:`bars` **> Virtual Infrastructure > VMs**. Prism Central's **Entity Browser** provides a robust UI for sorting, searching, and viewing entities such as VMs, Images, Clusters, Hosts, Alerts, and more!
 
-#. Select **Filters** and explore the available options. Specify the following example filters:
+#. Select **Filters** and explore the available options. Specify the following example filters, and verify the corresponding box is checked:
 
    - **Name** - Contains *Initials*
    - **Categories** - *Initials*\ -Team: Fiesta
