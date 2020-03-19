@@ -220,7 +220,7 @@ In this exercise you'll create a custom category for Carol to help align access 
 
 #. Select :fa:`bars` **> Virtual Infrastructure > VMs**.
 
-#. Using the checkboxes, select the **AutoAD**, **DDC**, and **NTNX-BootcampFS-1** VMs and click **Actions > Manage Categories**.
+#. Using the checkboxes, select the **AutoAD**, and **NTNX-BootcampFS-1** VMs and click **Actions > Manage Categories**.
 
    .. figure:: images/17.png
 
@@ -293,7 +293,7 @@ Carol needs to support two types of users working on the Fiesta team, developers
 #. Click **New User** to add an additional assignment to the same role:
 
    - **Users and Groups** - operator02
-   - **Entity Categories** - EnvironmentDev, *Initials*\ -Team:Fiesta
+   - **Entity Categories** - Environment:Dev, *Initials*\ -Team:Fiesta
 
    Operator02 is a user who sees all VMs tagged with either the Dev or Fiesta category values.
 
@@ -523,7 +523,7 @@ Carol to the rescue - she encourages Dan to follow the exercise below to allow h
 
    .. figure:: images/37.png
 
-#. Select the **Audit** tab to monitor the deployment of the Fiesta development environment. Complete provisioning of the app should take approximately
+#. Select the **Audit** tab to monitor the deployment of the Fiesta development environment. Complete provisioning of the app should take approximately 5 minutes.
 
    .. figure:: images/38.png
 
