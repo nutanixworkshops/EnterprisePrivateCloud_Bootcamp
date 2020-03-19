@@ -311,6 +311,21 @@ Using NFS Exports
 
 In this exercise you will create and test a NFSv4 export, used to support clustered applications, store application data such as logging, or storing other unstructured file data commonly accessed by Linux clients.
 
+Enabling NFS Protocol
+.....................
+
+.. note::
+
+   Enabling NFS protocol only needs to be performed once per Files server, and may have already been completed in your environment. If NFS is already enabled, proceed to `Configure User Mappings`_.
+
+#. In **Prism Element > File Server**, select your file server and click **Protocol Management > Directory Services**.
+
+   .. figure:: images/29.png
+
+#. Select **Use NFS Protocol** with **Unmanaged** User Management and Authentication, and click **Update**.
+
+   .. figure:: images/30.png
+
 Creating the Export
 ...................
 
@@ -423,21 +438,6 @@ Multi-Protocol Shares
 +++++++++++++++++++++
 
 Files provides the ability to provision both SMB shares and NFS exports separately - but also now supports the ability to provide multi-protocol access to the same share. In the exercise below, you will configure your existing *Initials*\ **-FiestaShare** to allow NFS access, allowing developer users to re-direct application logs to this location.
-
-Enabling NFS Protocol
-.....................
-
-.. note::
-
-   Enabling NFS protocol only needs to be performed once per Files server, and may have already been completed in your environment. If NFS is already enabled, proceed to `Configure User Mappings`_.
-
-#. In **Prism Element > File Server**, select your file server and click **Protocol Management > Directory Services**.
-
-   .. figure:: images/29.png
-
-#. Select **Use NFS Protocol** with **Unmanaged** User Management and Authentication, and click **Update**.
-
-   .. figure:: images/30.png
 
 Configure User Mappings
 .......................
