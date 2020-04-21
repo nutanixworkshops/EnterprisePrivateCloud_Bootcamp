@@ -40,7 +40,7 @@ In this brief exercise, you will experience how IT generalists can provision and
 
    .. figure:: images/4.png
 
-#. Provide a unique **Name** for the **Storage Container**, and click **Advanced Settings** to explore additional configuration options.
+#. Provide a unique **Name** (*Initials*-Storage-Container)for the **Storage Container**, and click **Advanced Settings** to explore additional configuration options.
 
    .. figure:: images/5.png
 
