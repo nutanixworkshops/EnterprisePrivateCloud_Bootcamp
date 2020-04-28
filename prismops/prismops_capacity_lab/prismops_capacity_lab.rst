@@ -1,12 +1,12 @@
 ------------------------
-Prism Ops Capacity Runway
+Prism Pro Capacity Runway
 ------------------------
 
 .. figure:: images/operationstriangle.png
 
-Prism Ops brings smart automation to our customer’s daily IT operations. The typical operations workflow is a continuous cycle of monitoring, analyzing and taking action where necessary. Prism Ops mirrors traditional IT Admin's workflows to improve operations efficiency. With Prism Ops, IT Admins are able to connect insights from machine data to automate this typical flow using the power of the machine learning engine X-FIT and the X-Play automation engine.
+Prism Pro brings smart automation to our customer’s daily IT operations. The typical operations workflow is a continuous cycle of monitoring, analyzing and taking action where necessary. Prism Pro mirrors traditional IT Admin's workflows to improve operations efficiency. With Prism Pro, IT Admins are able to connect insights from machine data to automate this typical flow using the power of the machine learning engine X-FIT and the X-Play automation engine.
 
-In this lab you will learn how Prism Ops can help IT Admins monitor, analyze and automatically act when cluster runway is low.
+In this lab you will learn how Prism Pro can help IT Admins monitor, analyze and automatically act when cluster runway is low.
 
 Lab Setup
 +++++++++
@@ -30,7 +30,7 @@ Lab Setup
 Capacity Planning Runway Monitoring
 ++++++++++++++++++++++++++++++++++++++
 
-Capacity runway is a measure of the remaining capacity left within a given cluster or node. There is an overall cluster runway as well as individual runway measurements for CPU, Memory and storage capacity. The Capacity Runway is calculated using X-FIT, Prism Ops's machine intelligence engine. Lets view the Capacity Runway of your lab cluster.
+Capacity runway is a measure of the remaining capacity left within a given cluster or node. There is an overall cluster runway as well as individual runway measurements for CPU, Memory and storage capacity. The Capacity Runway is calculated using X-FIT, Prism Pro's machine intelligence engine. Lets view the Capacity Runway of your lab cluster.
 
 #. In **Prism Central > Operations > Planning > Capacity Runway**.
 
@@ -56,7 +56,7 @@ Capacity runway is a measure of the remaining capacity left within a given clust
 Capacity Planning Runway Analysis
 ++++++++++++++++++++++++++++++++++++++
 
-Prism Ops's X-FIT engine also provides the capability to plan for future workloads and identifies the hardware that can be added to account for the new workloads resource requirements.
+Prism Pro's X-FIT engine also provides the capability to plan for future workloads and identifies the hardware that can be added to account for the new workloads resource requirements.
 
 #. Under the **‘Adjust Resources’** section in the left side of this page, click the **‘Get Started’** button. We can now use this to start planning for new workloads and see how runway will need to be extended in the future.
 
@@ -91,7 +91,7 @@ Prism Ops's X-FIT engine also provides the capability to plan for future workloa
 Automate Capacity Forecast Report Generation with X-Play
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Now let's look at how we can take automated action to generate this report when the Capacity Runway is low. We will use X-Play, Prism Ops's simple automation engine.
+Now let's look at how we can take automated action to generate this report when the Capacity Runway is low. We will use X-Play, Prism Pro's simple automation engine.
 
 #. Use the search bar to navigate to the **Playbooks** page.
 
@@ -137,26 +137,34 @@ Now let's look at how we can take automated action to generate this report when 
 
    .. figure:: images/cap9.png
 
-#. The alert simulation portion of this lab is not working today, instead we will show you what it would look like if the alert were to successfully generate. From the table view click to open the details for the “*Initials* - Automatically Generate Forecast Report” Playbook.
+#. Now let's trigger the workflow. Switch to the tab you opened in the setup with the **/alerts** URL [example 10.42.113.52/alerts]. Select the Radio for **Memory Runway is Short** and click **Simulate Alert**. This will simulate a memory constrained alert for the **Prism-Pro-Cluster**.
+
+   .. figure:: images/cap10.png
+
+#. Switch back to the previous tab with the **Prism Central** console. From the table view click to open the details for the “*Initials* - Automatically Generate Forecast Report” Playbook.
 
    .. figure:: images/cap11.png
 
-#. Switch to the **Plays** tab. If an alert were to generate for this playbook you would see a play like this in this tab.
+#. Switch to the **Plays** tab, and click on the title of the first Play in the table to take a closer look.
 
    .. figure:: images/cap12.png
 
-#. Clicking on it would show this view. The sections in this view can be expanded to show more details for each item. If there were any errors, they would also be surfaced in this view.
+#. The sections in this view can be expanded to show more details for each item. If there were any errors, they would also be surfaced in this view.
 
    .. figure:: images/cap13.png
 
-#. You would also get an email that looks something like this.
+#. Check your email. You should also get an email with the report attached for you to take a look. Note: In 5.11 the email can sometimes take up to 5 minutes to send.
 
    .. figure:: images/cap14.png
+
+#. **Delete** or **Disable** your Playbook from the **Prism Central** before moving on to another lab. Since there are multiple users sharing the lab environment, the alerts they generate could cause you to continue to recieve emails as long as this Playbook is enabled.
+
+   .. figure:: images/cap15.png
 
 Takeaways
 .........
 
-- Prism Ops is our solution to make IT OPS smarter and automated. It covers the IT OPS process ranging from intelligent detection to automated remediation.
+- Prism Pro is our solution to make IT OPS smarter and automated. It covers the IT OPS process ranging from intelligent detection to automated remediation.
 
 - X-FIT is our machine learning engine to support smart IT OPS, including capacity forecasting.
 
