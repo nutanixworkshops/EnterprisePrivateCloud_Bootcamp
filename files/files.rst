@@ -320,11 +320,11 @@ Enabling NFS Protocol
 
 #. In **Prism Element > File Server**, select your file server and click **Protocol Management > Directory Services**.
 
-   .. figure:: images/29.png
+   .. figure:: images/29b.png
 
 #. Select **Use NFS Protocol** with **Unmanaged** User Management and Authentication, and click **Update**.
 
-   .. figure:: images/30.png
+   .. figure:: images/30b.png
 
 Creating the Export
 ...................
@@ -335,12 +335,12 @@ Creating the Export
 
    - **Name** - logs
    - **Description (Optional)** - File share for system logs
-   - **File Server** - *Initials*\ **-Files**
+   - **File Server** - **BootcampFS**
    - **Share Path (Optional)** - Leave blank
    - **Max Size (Optional)** - Leave blank
    - **Select Protocol** - NFS
 
-   .. figure:: images/24.png
+   .. figure:: images/24b.png
 
 #. Click **Next**.
 
@@ -353,7 +353,7 @@ Creating the Export
    - Select **+ Add exceptions**
    - **Clients with Read-Write Access** - *The first 3 octets of your cluster network*\ .* (e.g. 10.38.1.\*)
 
-   .. figure:: images/25.png
+   .. figure:: images/25b.png
 
    By default an NFS export will allow read/write access to any host that mounts the export, but this can be restricted to specific IPs or IP ranges.
 
