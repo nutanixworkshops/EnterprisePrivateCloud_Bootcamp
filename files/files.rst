@@ -333,7 +333,7 @@ Creating the Export
 
 #. Fill out the following fields:
 
-   - **Name** - logs
+   - **Name** - *initials*\ -logs
    - **Description (Optional)** - File share for system logs
    - **File Server** - **BootcampFS**
    - **Share Path (Optional)** - Leave blank
