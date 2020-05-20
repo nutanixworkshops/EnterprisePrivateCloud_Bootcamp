@@ -197,7 +197,7 @@ In this exercise you will explore the new, integrated File Analytics capabilitie
 
    .. figure:: images/15.png
 
-   Under....
+
 
 #. From your *Initials*\ **-WinTools** VM, create some audit trail activity by opening several of the files under **Sample Data**.
 
