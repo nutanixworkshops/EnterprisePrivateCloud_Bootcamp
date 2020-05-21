@@ -400,7 +400,7 @@ You will first provision a CentOS VM to use as a client for your Files export.
 
        [root@CentOS ~]# yum install -y nfs-utils #This installs the NFSv4 client
        [root@CentOS ~]# mkdir /filesmnt
-       [root@CentOS ~]# mount.nfs4 <Intials>-Files.ntnxlab.local:/ /filesmnt/
+       [root@CentOS ~]# mount.nfs4 BootcampFS.ntnxlab.local:/ /filesmnt/
        [root@CentOS ~]# df -kh
        Filesystem                      Size  Used Avail Use% Mounted on
        /dev/mapper/centos_centos-root  8.5G  1.7G  6.8G  20% /
@@ -413,22 +413,22 @@ You will first provision a CentOS VM to use as a client for your Files export.
        *intials*-Files.ntnxlab.local:/             1.0T  7.0M  1.0T   1% /afsmnt
        [root@CentOS ~]# ls -l /filesmnt/
        total 1
-       drwxrwxrwx. 2 root root 2 Mar  9 18:53 logs
+       drwxrwxrwx. 2 root root 2 Mar  9 18:53 xyz-logs
 
-#. Observe that the **logs** directory is mounted in ``/filesmnt/logs``.
+#. Observe that the **logs** directory is mounted in ``/filesmnt/xyz-logs``.
 
 #. Reboot the VM and observe the export is no longer mounted. To persist the mount, add it to ``/etc/fstab`` by executing the following:
 
      .. code-block:: bash
 
-       echo 'Intials-Files.ntnxlab.local:/ /filesmnt nfs4' >> /etc/fstab
+       echo 'BootcampFS.ntnxlab.local:/ /filesmnt nfs4' >> /etc/fstab
 
 #. The following command will add 100 2MB files filled with random data to ``/filesmnt/logs``:
 
      .. code-block:: bash
 
-       mkdir /filesmnt/logs/host1
-       for i in {1..100}; do dd if=/dev/urandom bs=8k count=256 of=/filesmnt/logs/host1/file$i; done
+       mkdir /filesmnt/xyz-logs/host1
+       for i in {1..100}; do dd if=/dev/urandom bs=8k count=256 of=/filesmnt/xyz-logs/host1/file$i; done
 
 #. Return to **Prism > File Server > Share > logs** to monitor performance and usage.
 
