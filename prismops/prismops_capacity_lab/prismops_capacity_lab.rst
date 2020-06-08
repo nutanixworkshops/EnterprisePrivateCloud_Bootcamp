@@ -15,7 +15,7 @@ Lab Setup
 
    .. figure:: images/init1.png
 
-#. Open a new tab in the browser, and navigate to http://`<GTSPrismOpsLabUtilityServer_IP_ADDRESS>`/alerts [example http://10.42.113.52/alerts]. It is possible you may need to log into the VM if you are the first one to use it. Just fill out the **Prism Central IP**, **Username** and **Password** and click **Login**.
+#. Open a new tab in the browser, and navigate to http://`<PrismOpsLabUtilityServer_IP_ADDRESS>`/alerts [example http://10.38.17.12/alerts]. It is possible you may need to log into the VM if you are the first one to use it. Just fill out the **Prism Central IP**, **Username** and **Password** and click **Login**.
 
    .. figure:: images/init2.png
 
@@ -23,7 +23,7 @@ Lab Setup
 
    .. figure:: images/init2b.png
 
-#. In a separate tab, navigate to http://`<GTSPrismOpsLabUtilityServer_IP_ADDRESS>`/ to complete the lab from [example http://10.42.113.52/]. Use the UI at this URL to complete the lab.
+#. In a separate tab, navigate to http://`<PrismOpsLabUtilityServer_IP_ADDRESS>`/ to complete the lab from [example http://10.38.17.12/]. Use the UI at this URL to complete the lab.
 
    .. figure:: images/init3.png
 
@@ -93,7 +93,7 @@ Automate Capacity Forecast Report Generation with X-Play
 
 Now let's look at how we can take automated action to generate this report when the Capacity Runway is low. We will use X-Play, Prism Pro's simple automation engine.
 
-#. Use the search bar to navigate to the **Playbooks** page.
+#. Use the hamburger menu to navigate to **Operations** > **Playbook**.
 
    .. figure:: images/cap1.png
 
@@ -101,11 +101,11 @@ Now let's look at how we can take automated action to generate this report when 
 
    .. figure:: images/cap2.png
 
-#. Select the **Alert** as the trigger.
+#. Select the **Alerts Matching Criteria** as the trigger. Using this trigger allows us to trigger this Playbook for one or more Alert Policies that match the criteria specified.
 
    .. figure:: images/cap3.png
 
-#. Search and select **Cluster running out of Memory Capacity (low runway)** as the alert policy, since this is the issue we are looking to take automated steps to generate a report for.
+#. Select the Specific Alert Policies radio button and then search 'runway' in the search box. Select **Cluster running out of storage Capacity (low runway)**, **Cluster running out of Memory Capacity (low runway)**, and **Cluster running out of CPU Capacity (low runway)** from the dropdown, since these are the 3 alerts we would want to generate a report for if Storage, Memory or CPU runway are low.
 
    .. figure:: images/cap4.png
 
@@ -137,7 +137,7 @@ Now let's look at how we can take automated action to generate this report when 
 
    .. figure:: images/cap9.png
 
-#. Now let's trigger the workflow. Switch to the tab you opened in the setup with the **/alerts** URL [example 10.42.113.52/alerts]. Select the Radio for **Memory Runway is Short** and click **Simulate Alert**. This will simulate a memory constrained alert for the **Prism-Pro-Cluster**.
+#. Now let's trigger the workflow. Switch to the tab you opened in the setup with the **/alerts** URL [example 10.38.17.12/alerts]. Select the Radio for **Memory Runway is Short** and click **Simulate Alert**. This will simulate a memory constrained alert for the **Prism-Pro-Cluster**.
 
    .. figure:: images/cap10.png
 
