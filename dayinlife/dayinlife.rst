@@ -364,7 +364,7 @@ In order for non-infrastructure administrators to access Calm, allowing them to 
 
 #. Click **Save & Configure Environment**.
 
-``This will redirect you to the Envrionments page, but there is nothing needed to configure here. Move onto the next step.``
+``This will redirect you to the Environments page, but there is nothing needed to configure here. Move onto the next step.``
 
 Note that only **Operator02** was given access to the **Calm** project, rather than all Operator accounts.
 
